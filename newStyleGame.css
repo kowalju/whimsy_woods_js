@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(to bottom, #FDF6EC, #DDEECC);
+    color: #444;
+    height: 100vh;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 0.5em auto;
+    color: #7DA87B;
+    text-align: center;
+    width: 100%;
+}
+
+.game {
+    display: flex;
+    margin: 1em;
+    gap: 2em;
+}
+
+.map {
+    display: grid;
+    grid-template-columns: repeat(8, 90px);
+    grid-template-rows: repeat(5, 90px);
+    position: relative;
+}
+
+.information {
+    background-color: darkseagreen;
+    color: white;
+    padding: 1em;
+    width: 30em;
+    .name{
+        font-size: 1.5rem;
+        margin: 1px auto;
+        color: #7DA87B;
+        text-align: center;
+        width: 100%;
+        background-color: #FDF6EC;
+    }
+}
+.howTo{
+    display: flex;
+
+    ul{
+        display: inline-flex;
+        list-style: none;
+        gap: 1em;
+        margin-left: 5em;
+        color: #7DA87B;
+
+    }
+}
+
+.tile {
+    width: 90px;
+    height: 90px;
+    background-size: cover;
+}
+
+.forest {
+    background-image: url("/images/forest.jpg");
+}
+
+.lake {
+    background-image: url("/images/lake.jpg");
+}
+
+.empty {
+    background-image: url("/images/empty.jpg");
+}
+
+.tree {
+    background-image: url("/images/tree.jpg");
+}
+
+.house {
+    background-image: url("/images/house.jpg");
+}
+.mountain{
+    background-image: url("/images/mountain.jpg");
+}
+
+.player {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-image: url("/images/player.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    transition: top 0.1s ease, left 0.1s ease;
+}
+
+.dialog {
+    bottom: 2em;
+    left: 2em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 1em;
+
+
+    padding: 1em 1.5em;
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    font-size: 1.1rem;
+    z-index: 20;
+    max-width: 400px;
+}
+.question{
+    bottom: 2em;
+    left: 2em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 0.5em;
+
+    padding: 1em 1.5em;
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    font-size: 1.1rem;
+    z-index: 20;
+    max-width: 400px;
+}
+
+.hidden {
+    display: none;
+}
+
+.portrait {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.dialog p {
+    margin: 0;
+}
+.hint {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #999;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    color: #333;
+    transform: translate(-10%, -120%);
+    z-index: 15;
+    pointer-events: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+.glow {
+    animation: pulse 1.2s infinite;
+    box-shadow: 0 0 15px #7DA87B;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px #7DA87B; }
+    50% { box-shadow: 0 0 10px  black; }
+    100% { box-shadow: 0 0 5px #7DA87B; }
+}
+.player.flipped {
+    transform: scaleX(-1);
+}
+
+.too-small {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    color: #444;
+    background-color: #fff6f6;
+    padding: 2em;
+    border: 2px solid #d88;
+    border-radius: 12px;
+    z-index: 9999;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1199px) {
+    body > *:not(.too-small) {
+        display: none !important;
+    }
+
+    .too-small {
+        display: block;
+    }
+}
+/*
+@media (min-width: 1280px) and (max-width: 1920px) {
+    .game {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .information {
+        width: 37%;
+        margin-top: 1em;
+    }
+
+    .howTo {
+        margin-top: 2em;
+        justify-content: center;
+    }
+
+    .howTo ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+    }
+    .dialog{
+        width: 100%;
+    }
+}
+*/
+@media (min-width: 1300px){
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        text-align: center;
+        margin-top: 10%;
+    }
+
+    .game {
+        max-width: 2000px;
+        margin: 0 auto;
+        display: flex;
+        gap: 2em;
+    }
+
+    .information {
+        max-width: 600px;
+    }
+}
+
+
+
